@@ -4,6 +4,7 @@
 
 - (CGSize)layoutSubviewsEffectively:(BOOL)effectively
 {
+
     int total_height = self.topMargin, max_width = 0, nbSubViews = 0;
     for (UIView *child in self.subviews)
     {
@@ -49,8 +50,13 @@
                         left = baseline - child.frame.size.width / 2;
                         break;
                 }
+                [child setTranslatesAutoresizingMaskIntoConstraints:true];
+                CGRect rect = child.frame;
                 child.frame = CGRectMake(left, top, child.frame.size.width,
                                          child.frame.size.height);
+                rect = child.frame;
+
+
                 top += child.frame.size.height;
             }
         }

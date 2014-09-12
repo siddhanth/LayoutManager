@@ -30,7 +30,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     self.vLayoutView.hAlignment = UIControlContentHorizontalAlignmentLeft; //horizontal Alignment
     self.vLayoutView.vAlignment = UIControlContentVerticalAlignmentTop; // vertical Alignment
     self.vLayoutView.spacing = 10; //spacing between subviews
@@ -40,7 +40,15 @@
     self.hLayoutView.vAlignment = UIControlContentVerticalAlignmentCenter;
     self.hLayoutView.spacing=10;
     self.hLayoutView.removeOnHide  = YES;
-    
+
+}
+
+
+-(void) viewDidLayoutSubviews;{
+    [super viewDidLayoutSubviews];
+}
+-(void) viewWillLayoutSubviews;{
+    NSLog(@"view will layout subview");
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,8 +57,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (IBAction)btnTouchUpInside:(UIButton*)sender
 {
+    CGRect rect = self.vLayoutView.frame;
+    rect.origin.x=273  ;
+    rect.origin.y=269;
+    [self.vLayoutView setFrame:rect];
+    [self.vLayoutView setNeedsDisplay];
+
+
     if([sender.titleLabel.text isEqualToString:@"hide"]) {
         [sender setTitle:@"show" forState:UIControlStateNormal];
         self.viewToHide.hidden = YES;

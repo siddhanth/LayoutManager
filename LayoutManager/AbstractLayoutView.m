@@ -116,9 +116,8 @@
 }
 
 - (void)layoutSubviews
-{
+{    
     [super layoutSubviews];
-    
     BOOL showsHorizontalScrollIndicator = self.showsHorizontalScrollIndicator;
     BOOL showsVerticalScrollIndicator = self.showsVerticalScrollIndicator;
     self.showsHorizontalScrollIndicator = NO;

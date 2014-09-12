@@ -49,6 +49,7 @@
                         top = baseline - child.frame.size.height / 2;
                         break;
                 }
+                [child setTranslatesAutoresizingMaskIntoConstraints:true];
                 child.frame = CGRectMake(left, top, child.frame.size.width,
                                          child.frame.size.height);
                 left += child.frame.size.width;
